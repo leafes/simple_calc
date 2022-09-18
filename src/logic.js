@@ -50,8 +50,8 @@ const updateInput = (value) => {
       operationScreen.value = value;
     }
     const lastChar = inputElement.value.slice(-1);
-    inputElement.value = (Object.hasOwn(operators, lastChar) || !inputElement.value)
-      ? inputElement.value : inputElement.value + value
+    inputElement.value = ((Object.hasOwn(operators, lastChar) || !inputElement.value)
+      ? inputElement.value : inputElement.value + value);
     return;
   }
 
