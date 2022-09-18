@@ -58,6 +58,7 @@ button {
   padding: 30px;
   display: block;
   color: white;
+  touch-action: manipulation;
 }
 
 button:active {
@@ -74,4 +75,20 @@ button:active {
 
 button:hover {
   opacity: 0.8;
+}
+
+@media screen and (max-width: 600px){
+  body {
+    margin: 0;
+    width: 100%;
+  }
+  .calc_body {
+    width: 100%;
+  }
+  .row {
+    height: 15vh;
+  }
+  .screen {
+    height: 25vh;
+  }
 }
