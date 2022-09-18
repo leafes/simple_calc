@@ -87,6 +87,7 @@ button:hover {
   }
   .row {
     height: 15vh;
+    min-height: 40px;
   }
   .screen {
     height: 25vh;
