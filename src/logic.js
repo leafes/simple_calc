@@ -45,8 +45,10 @@ const updateInput = (value) => {
   }
 
   if (isOperator(value)) {
-    if (isUnderOperation) updateInput('=');
-    operationScreen.value = value;
+    if (Boolean(inputElement.value)) {
+      if (isUnderOperation) updateInput('=');
+      operationScreen.value = value;
+    }
     const lastChar = inputElement.value.slice(-1);
       inputElement.value = (Object.hasOwn(operators, lastChar) || !inputElement.value)
         ? inputElement.value : inputElement.value + value
