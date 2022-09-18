@@ -68,9 +68,13 @@ const updateInput = (value) => {
   inputElement.value += value;
 }
 
+const clickSound = () =>
+{
+  const click = new Audio('src/audio/tw.ogg');
+  click.play();
+}
 const buttonFunc = (obj) => {
   const value = obj.innerHTML;
-  const clickSound = new Audio('audio/tw.ogg');
-  clickSound.play();
+  clickSound();
   updateInput(value);
 }
