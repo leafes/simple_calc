@@ -18,6 +18,7 @@ body {
 }
 .screen {
   background-color: #E1E2EF;
+  color: #000000AA;
   font-size: 24px;
   display: flex;
   height: 120px;
@@ -29,11 +30,12 @@ body {
 .screen input {
   border: 0;
   margin-left: auto;
-  width: 80%;
+  width: 100%;
   height: 40%;
   font-size: 48px;
   background-color: #E1E2EF;
   text-align: right;
+  color: #000;
 }
 .row {
   display: flex;
