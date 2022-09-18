@@ -31,7 +31,7 @@ const updateInput = (value) => {
 
   if (value === 'Clear') {
     inputElement.value = null;
-    operationScreen.innerHTML= null;
+    operationScreen.innerHTML = null;
     operationScreen.value = null;
     return;
   }
@@ -50,11 +50,11 @@ const updateInput = (value) => {
       operationScreen.value = value;
     }
     const lastChar = inputElement.value.slice(-1);
-      inputElement.value = (Object.hasOwn(operators, lastChar) || !inputElement.value)
-        ? inputElement.value : inputElement.value + value
-    return;  
+    inputElement.value = (Object.hasOwn(operators, lastChar) || !inputElement.value)
+      ? inputElement.value : inputElement.value + value
+    return;
   }
-  
+
   if (value === '±') {
     if (isUnderOperation) {
       const operands = inputElement.value.split(currentOperator);
@@ -70,8 +70,7 @@ const updateInput = (value) => {
   inputElement.value += value;
 }
 
-const clickSound = () =>
-{
+const clickSound = () => {
   const click = new Audio('src/audio/tw.ogg');
   click.play();
 }
