@@ -3,12 +3,10 @@ const updateInput = (value) => {
   const operators = {
     '+': (str) => {
       const values = str.split('+');
-      console.log(values);
       return Number(values[0]) + Number(values[1]);
     },
     '-': (str) => {
       const values = str.split('-');
-      console.log(Number(values[0]) - Number(values[1]))
       return Number(values[0]) - Number(values[1]);
     },
     '/': (str) => {
@@ -28,10 +26,8 @@ const updateInput = (value) => {
   const isOperator = (char) => Object.hasOwn(operators, char);
   const inputElement = document.getElementById('input');
   const operationScreen = document.getElementById('operation');
-  if (value === '±') {
-    inputElement.value = -inputElement.value;
-    return;
-  }
+  const isUnderOperation = Boolean(operationScreen.value);
+
   if (value === 'Clear') {
     inputElement.value = null;
     operationScreen.innerHTML= null;
@@ -42,18 +38,25 @@ const updateInput = (value) => {
   if (value === '=') {
     operationScreen.innerHTML = inputElement.value;
     const currentOperator = operationScreen.value;
-    inputElement.value = (currentOperator) ? operators[currentOperator](inputElement.value)
+    inputElement.value = (isUnderOperation) ? operators[currentOperator](inputElement.value)
       : inputElement.value;
     operationScreen.value = null;
     return;
   }
 
   if (isOperator(value)) {
+    if (isUnderOperation) updateInput('=');
     operationScreen.value = value;
     const lastChar = inputElement.value.slice(-1);
       inputElement.value = (Object.hasOwn(operators, lastChar) || !inputElement.value)
         ? inputElement.value : inputElement.value + value
     return;  
+  }
+  
+  if (value === '±') {
+    if (isUnderOperation) updateInput('=');
+    inputElement.value = (inputElement.value) ? -inputElement.value : null;
+    return;
   }
 
   inputElement.value += value;
