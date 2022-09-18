@@ -34,7 +34,8 @@ body {
 
 .screen input {
   border: 0;
-  width: 100%;
+  margin: 0;
+  padding: 4px;
   height: 40%;
   font-size: 48px;
   background-color: #E1E2EF;
