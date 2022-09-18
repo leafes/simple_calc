@@ -43,6 +43,7 @@ body {
 }
 
 button {
+  margin: 0;
   border: 0;
   flex: 1;
   text-align: center;
