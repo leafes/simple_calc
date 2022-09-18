@@ -26,7 +26,8 @@ const updateInput = (value) => {
   const isOperator = (char) => Object.hasOwn(operators, char);
   const inputElement = document.getElementById('input');
   const operationScreen = document.getElementById('operation');
-  const isUnderOperation = Boolean(operationScreen.value);
+  const currentOperator = operationScreen.value;
+  const isUnderOperation = Boolean(currentOperator);
 
   if (value === 'Clear') {
     inputElement.value = null;
@@ -37,7 +38,6 @@ const updateInput = (value) => {
 
   if (value === '=') {
     operationScreen.innerHTML = inputElement.value;
-    const currentOperator = operationScreen.value;
     inputElement.value = (isUnderOperation) ? operators[currentOperator](inputElement.value)
       : inputElement.value;
     operationScreen.value = null;
@@ -54,7 +54,13 @@ const updateInput = (value) => {
   }
   
   if (value === '±') {
-    if (isUnderOperation) updateInput('=');
+    if (isUnderOperation) {
+      const operands = inputElement.value.split(currentOperator);
+      const firstOperand = operands[0]
+      const lastOperand = operands[1];
+      inputElement.value = `${firstOperand}${currentOperator}${-lastOperand || ''}`;
+      return;
+    }
     inputElement.value = (inputElement.value) ? -inputElement.value : null;
     return;
   }
@@ -64,5 +70,7 @@ const updateInput = (value) => {
 
 const buttonFunc = (obj) => {
   const value = obj.innerHTML;
+  const clickSound = new Audio('audio/tw.ogg');
+  clickSound.play();
   updateInput(value);
 }
