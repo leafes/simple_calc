@@ -1,4 +1,3 @@
-
 /*
   color pallete: 
   BFACAA
@@ -13,12 +12,14 @@ body {
   margin: auto;
   margin-top: 10vh;
 }
+
 .calc_body {
   display: flex;
   flex-direction: column;
   width: 360px;
   font-family: 'Roboto mono', monospace;
 }
+
 .screen {
   background-color: #E1E2EF;
   color: #000000AA;
@@ -30,6 +31,7 @@ body {
   text-align: right;
   padding: 8px;
 }
+
 .screen input {
   border: 0;
   margin-left: auto;
@@ -40,6 +42,7 @@ body {
   text-align: right;
   color: #000;
 }
+
 .row {
   display: flex;
   flex-direction: row;
@@ -56,15 +59,19 @@ button {
   display: block;
   color: white;
 }
+
 button:active {
   background-color: red;
 }
+
 .number {
   background-color: #02020A;
 }
+
 .operator {
   background-color: #BFACAA;
 }
+
 button:hover {
   opacity: 0.8;
 }
