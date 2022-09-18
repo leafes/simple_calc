@@ -8,6 +8,7 @@ const updateInput = (value) => {
     },
     '-': (str) => {
       const values = str.split('-');
+      console.log(Number(values[0]) - Number(values[1]))
       return Number(values[0]) - Number(values[1]);
     },
     '/': (str) => {
@@ -27,27 +28,29 @@ const updateInput = (value) => {
   const isOperator = (char) => Object.hasOwn(operators, char);
   const inputElement = document.getElementById('input');
   const operationScreen = document.getElementById('operation');
-
+  if (value === '±') {
+    inputElement.value = -inputElement.value;
+    return;
+  }
   if (value === 'Clear') {
     inputElement.value = null;
     operationScreen.innerHTML= null;
+    operationScreen.value = null;
     return;
   }
 
   if (value === '=') {
     operationScreen.innerHTML = inputElement.value;
     const currentOperator = operationScreen.value;
-    console.log(currentOperator);
-    inputElement.value = operators[currentOperator](inputElement.value)
-      || inputElement.value;
+    inputElement.value = (currentOperator) ? operators[currentOperator](inputElement.value)
+      : inputElement.value;
+    operationScreen.value = null;
     return;
   }
 
   if (isOperator(value)) {
     operationScreen.value = value;
-    const currentOperator = operationScreen.value;
     const lastChar = inputElement.value.slice(-1);
-    if (currentOperator) updateInput('=');
       inputElement.value = (Object.hasOwn(operators, lastChar) || !inputElement.value)
         ? inputElement.value : inputElement.value + value
     return;  
