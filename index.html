@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="src/main.css">
+  <title>Simple Calc</title>
+</head>
+
+<body>
+  <div class="calc_body">
+    <div class="screen">
+      <div id="operation"></div>
+      <input class="row" placeholder="0" id="input" disabled>
+    </div>
+    
+    <div class="row">
+      <button class="number" onclick="buttonFunc(this)">±</button>
+      <button class="number" onclick="buttonFunc(this)">%</button>
+      <button class="operator" style="flex: 4;" onclick="buttonFunc(this)">Clear</button>
+    </div>
+    <div class="row">
+      <button class="number" onclick="buttonFunc(this)">1</button>
+      <button class="number" onclick="buttonFunc(this)">2</button>
+      <button class="number" onclick="buttonFunc(this)">3</button>
+      <button class="operator" onclick="buttonFunc(this)">+</button>
+    </div>
+    <div class="row">
+      <button class="number" onclick="buttonFunc(this)">4</button>
+      <button class="number" onclick="buttonFunc(this)">5</button>
+      <button class="number" onclick="buttonFunc(this)">6</button>
+      <button class="operator" onclick="buttonFunc(this)">-</button>
+    </div>
+    <div class="row">
+      <button class="number" onclick="buttonFunc(this)">7</button>
+      <button class="number" onclick="buttonFunc(this)">8</button>
+      <button class="number" onclick="buttonFunc(this)">9</button>
+      <button class="operator" onclick="buttonFunc(this)">*</button>
+    </div>
+    <div class="row">
+      <button class="number" onclick="buttonFunc(this)">.</button>
+      <button class="number" onclick="buttonFunc(this)">0</button>
+      <button class="number" onclick="buttonFunc(this)">=</button>
+      <button class="operator" onclick="buttonFunc(this)">/</button>
+    </div>
+  </div>
+  <script src="src/logic.js"></script>
+</body>
+</html>
