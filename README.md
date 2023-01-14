@@ -6,7 +6,7 @@ A calculator I created for training purposes using HTML, CSS and JavaScript.
 
 ### How to run
 
-Clone the project and open the HTML file in a web-browser
+Clone the project and open HTML file in a web-browser
 ```
 git clone https://github.com/leafes/simple_calc.git
 ```
